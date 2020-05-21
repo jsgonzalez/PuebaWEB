@@ -2,7 +2,7 @@ export class Agenda {
 
   _id : string;
 
-  title : string;
+  titulo : string;
 
   iniciaDia : Date;
 
