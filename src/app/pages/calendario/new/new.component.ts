@@ -55,7 +55,7 @@ export class NewComponent implements OnInit {
 
   update(id, agenda){
     this.calendarioService.updateAgenda(id, agenda).subscribe( result => {
-      swal('Test','Registro creado correctamente','success');
+      swal('Test','Registro actualizado correctamente','success');
       this.router.navigate(['/']);
     }, error => swal('Test','Error', 'error') );
   }
