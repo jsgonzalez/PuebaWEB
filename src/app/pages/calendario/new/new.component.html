@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="card">
+  <div class="card-header">Nuevo</div>
+  <div class="card-body">
+
+    <form #testForm="ngForm">
+
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label col-sm-2">Titulo</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control"  [(ngModel)]="agenda.titulo" name="titulo" #titulo="ngModel"> <!-- required minlength="4" -->
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label col-sm-2">Fecha inicio</label>
+        <div class="col-sm-6">
+          <input type="date" class="form-control" [(ngModel)]="agenda.iniciaDia" name="iniciaDia" #iniciaDia="ngModel"> <!-- required minlength="4" -->
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label col-sm-2">Hora</label>
+        <div class="col-sm-6">
+          <input type="time" class="form-control" [(ngModel)]="agenda.iniciaHora" name="iniciaHora" #iniciaHora="ngModel"> <!-- required minlength="4" -->
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label col-sm-2">Fecha termino</label>
+        <div class="col-sm-6">
+          <input type="date" class="form-control" [(ngModel)]="agenda.finalizaDia" name="finalizaDia" #finalizaDia="ngModel"> <!-- required minlength="4" -->
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label col-sm-2">Hora termino</label>
+        <div class="col-sm-6">
+          <input type="time" class="form-control" [(ngModel)]="agenda.finalizaHora" name="finalizaHora" #finalizaHora="ngModel"> <!-- required minlength="4" -->
+        </div>
+      </div>
+
+      <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!agenda._id else elseBlock" [disabled]="!testForm.form.valid">Guardar</button>
+      <ng-template #elseBlock>
+        <button class="btn btn-primary" role="button" (click)='update(agenda._id, agenda)' [disabled]="!testForm.form.valid">Editar</button>
+      </ng-template>
+    </form>
+
+  </div>
+</div>
