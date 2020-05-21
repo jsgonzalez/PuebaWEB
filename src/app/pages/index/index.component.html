@@ -1,1 +1,29 @@
 <app-navbar></app-navbar>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Fecha Inicio</th>
+      <th scope="col">Hora Inicio</th>
+      <th scope="col">Fecha Termino</th>
+      <th scope="col">Hora Termino</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let agenda of agendas">
+      <th scope="col"></th>
+      <th scope="col">{{ agenda.titulo  }}</th>
+      <th scope="col">{{ agenda.iniciaDia }}</th>
+      <th scope="col">{{ agenda.iniciaHora }}</th>
+      <th scope="col">{{ agenda.finalizaDia }}</th>
+      <th scope="col">{{ agenda.finalizaHora }}</th>
+      <td>
+        <button class="btn btn-succes mr-2" [routerLink]="['/nuevo', agenda._id]" >Editar</button>
+        <button class="btn btn-succes mr-2" (click)="delete(agenda._id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,12 @@ import { PagesModule } from './pages/pages.module';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './pages/auth/interceptors/auth.interceptor';
 import { TokenInterceptor } from './pages/auth/interceptors/token.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { registerLocaleData } from '@angular/common';
+import localeES from '@angular/common/locales/es';
+
+registerLocaleData(localeES, 'es');
 
 @NgModule({
   declarations: [
@@ -23,9 +29,11 @@ import { TokenInterceptor } from './pages/auth/interceptors/token.interceptor';
     AppRoutingModule,
     NgbModule,
     AuthModule,
-    PagesModule
+    PagesModule,
+    BrowserAnimationsModule
   ],
   providers: [
+    { provide: LOCALE_ID, useValue: 'es' },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
