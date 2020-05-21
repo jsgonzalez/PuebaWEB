@@ -47,8 +47,7 @@ export class LoginComponent implements OnInit {
 
         swal('Error Login', 'Usuario o clave incorrectas!', 'error');
 
-    }
-    );
+    });
   }
 
 }
